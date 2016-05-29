@@ -1,0 +1,19 @@
+command grun;
+
+options {
+    "-tokens";
+    "-tree";
+    "-gui";
+    "-ps" $file.ps;
+    "-trace";
+    "-encoding" $encoding;
+    "some" "more" "args";
+    $file $file_only $dir;
+};
+
+array $encoding {
+    "gb2312",
+    "gb18030",
+    "utf-8",
+    "shift-jis"
+};
