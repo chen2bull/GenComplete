@@ -1,36 +1,36 @@
 grammar GenConfig;
 
-file:commend_dec options_dec arrays;
+file:commendDec optionsDec arrays;
 
-commend_dec:'command' ID ';';
+commendDec:'command' ID ';';
 
-options_dec:'options' '{' (option_list';')+ '}' ';';
+optionsDec:'options' '{' (optionList';')+ '}' ';';
 
-option_list: option+;
-option:STRING|
-    ARRAYNAME|
-    ARRAYNAME_FILE|
-    ARRAYNAME_FILEONLY|
-    ARRAYNAME_DIR|
-    ARRAYNAME_FILESUFF;
+optionList: option+;
+option:String|
+    Arrayname|
+    ArraynameFile|
+    ArraynameFileOnly|
+    ArraynameDir|
+    ArraynameFileSuff;
 
-arrays:array_dec*;
+arrays:arrayDec*;
 
-array_dec:'array' ARRAYNAME '{' STRING(','STRING)*'}' ';';
+arrayDec:'array' Arrayname '{' String(','String)*'}' ';';
 
-ARRAYNAME_FILE:'$file';
-ARRAYNAME_FILEONLY:'$file_only';
-ARRAYNAME_DIR:'$dir';
-ARRAYNAME_FILESUFF:'$file' '.' [a-zA-Z0-9]+;
-ARRAYNAME:'$'[a-zA-Z0-9]+;
+ArraynameFile:'$file';
+ArraynameFileOnly:'$file_only';
+ArraynameDir:'$dir';
+ArraynameFileSuff:'$file' '.' [a-zA-Z0-9]+;
+Arrayname:'$'[a-zA-Z0-9]+;
 
 ID  :   [_a-zA-Z][_a-zA-Z0-9]* ;
 
-STRING: '"'(ESC|.)*?'"';    // 这里ESC必须在点号之前,这样才能正常匹配"what\"else"
+String: '"'(Esc|.)*?'"';    // 这里ESC必须在点号之前,这样才能正常匹配"what\"else"
                             // 如果点号在ESC前面的话匹配到"what\"就会结束了
 
-SPACE: (' ' | '\t' |'\r'?'\n') -> skip;
+Space: (' ' | '\t' |'\r'?'\n') -> skip;
 
-LINE_COMMENT : '//' .*? '\r'? '\n' -> skip ;
-COMMENT      : '/*' .*? '*/' -> skip ;
-fragment ESC: '\\"' | '\\\\';
+LineComment : '//' .*? '\r'? '\n' -> skip ;
+Comment      : '/*' .*? '*/' -> skip ;
+fragment Esc: '\\"' | '\\\\';
