@@ -12,3 +12,12 @@
 hs_err_pid*
 /GenComplete.iml
 /.idea
+/src/GenConfig.tokens
+/src/GenConfigBaseListener.java
+/src/GenConfigLexer.java
+/src/GenConfigLexer.tokens
+/src/GenConfigListener.java
+/src/GenConfigParser.java
+/out/production/GenComplete/GenConfig.g4
+/out/production/GenComplete/GenConfig.tokens
+/out/production/GenComplete/GenConfigLexer.tokens
