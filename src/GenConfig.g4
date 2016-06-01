@@ -6,8 +6,13 @@ commendDec:'command' ID ';';
 
 optionsDec:'options' '{' (optionList';')+ '}' ';';
 
-optionList: option+;
-option:String|
+optionList
+    : String arrayName
+    | String
+    | arrayName
+    ;
+
+arrayName:
     Arrayname|
     ArraynameFile|
     ArraynameFileOnly|
@@ -26,11 +31,9 @@ Arrayname:'$'[a-zA-Z0-9]+;
 
 ID  :   [_a-zA-Z][_a-zA-Z0-9]* ;
 
-String: '"'(Esc|.)*?'"';    // 这里ESC必须在点号之前,这样才能正常匹配"what\"else"
-                            // 如果点号在ESC前面的话匹配到"what\"就会结束了
+String: '"'(~[ \t\n])*?'"';    // 命令行参数中,单个参数中不允许有空格
 
 Space: (' ' | '\t' |'\r'?'\n') -> skip;
 
 LineComment : '//' .*? '\r'? '\n' -> skip ;
 Comment      : '/*' .*? '*/' -> skip ;
-fragment Esc: '\\"' | '\\\\';

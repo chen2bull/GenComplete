@@ -3,12 +3,13 @@ command grun;
 options {
     "-tokens";
     "-tree";
+    $file_only;
     "-gui";
-    "-ps" $file.ps;
+    "-ps" $file.class;
     "-trace";
     "-encoding" $encoding;
-    "some" "more" "args";
-    $file $file_only $dir;
+    "some" $dir;
+    $file;
 };
 
 array $encoding {

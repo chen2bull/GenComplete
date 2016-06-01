@@ -52,10 +52,6 @@ public class GenConfigCodeListener extends GenConfigBaseListener {
 
     @Override public void exitOptionList(GenConfigParser.OptionListContext ctx) { }
 
-    @Override public void enterOption(GenConfigParser.OptionContext ctx) { }
-
-    @Override public void exitOption(GenConfigParser.OptionContext ctx) { }
-
     @Override public void enterArrays(GenConfigParser.ArraysContext ctx) { }
 
     @Override public void exitArrays(GenConfigParser.ArraysContext ctx) { }
