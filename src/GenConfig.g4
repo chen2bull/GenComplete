@@ -7,9 +7,9 @@ commendDec:'command' ID ';';
 optionsDec:'options' '{' (optionList';')+ '}' ';';
 
 optionList
-    : String arrayName
-    | String
-    | arrayName
+    : String arrayName      #optionStringAndArray
+    | String                #optionSingle
+    | arrayName             #optionArray
     ;
 
 arrayName:

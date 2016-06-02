@@ -9,6 +9,7 @@ options {
     "-trace";
     "-encoding" $encoding;
     "some" $dir;
+    $file.abc;
     $file;
 };
 
